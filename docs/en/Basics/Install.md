@@ -1,22 +1,81 @@
 # Installation
 
-## Install SilverStripe
-First install SilverStripe 3.0.3 or greater. SilverStripe 3.1 also works well.
+## Composer Install
 
-[Download SilverStripe 3.0.3](http://www.silverstripe.org/stable-download/)  
-[Download SilverStripe 3.1](http://www.silverstripe.org/pre-releases/)
+### Install SilverStripe and SwipeStripe
+
+```
+composer create-project --no-dev silverstripe/installer ./some-directory 3.1.0
+composer require swipestripe/swipestripe:2.1.*@dev
+php framework/cli-script.php dev/build flush=1
+```
+### Install payment module
+
+```
+composer require frankmullenger/payment-cheque:dev-master
+```
+
+#### Configure payment module
+
+Update mysite/_config/config.yml by adding:
+
+```yaml
+---
+Name: payment
+After: 'framework/*','cms/*'
+---
+PaymentGateway:
+  environment:
+    'dev'
+
+PaymentProcessor:
+  supported_methods:
+    dev:
+      - 'Cheque'
+    live:
+      - 'Cheque'
+```
+
+```
+php framework/cli-script.php dev/build flush=1
+```
+
+### Set base currency
+After installing SwipeStripe it is a good idea to set a base currency - before you add products or process any orders.
+
+Go to the Shop section and click on the "Settings" tab.  
+Find the box for "Base Currency" and click "Edit base currency".  
+Set the base currency, a [3 letter currency code](http://en.wikipedia.org/wiki/ISO_4217#Active_codes) and the symbol you want to use when displaying this currency.
+
+### Install other SwipeStripe modules
+
+```
+composer require swipestripe/swipestripe-addresses:2.1.*@dev
+composer require swipestripe/swipestripe-category:2.1.*@dev
+composer require swipestripe/swipestripe-flatfeeshipping:2.1.*@dev
+composer require swipestripe/swipestripe-flatfeetax:2.1.*@dev
+composer require swipestripe/swipestripe-currency:2.1.*@dev
+composer require swipestripe/swipestripe-docs:2.1.*@dev
+```
+
+[List of SwipeStripe modules here](http://addons.silverstripe.org/add-ons/swipestripe)
+
+## Manual Install
+
+### Install SilverStripe
+First install SilverStripe 3.1.*.
 
 [How to install SilverStripe](http://doc.silverstripe.org/framework/en/installation/)
 
 Log in to the admin area after you have installed SilverStripe.
 
-## Install SwipeStripe
+### Install SwipeStripe
 Once SilverStripe is installed you can install the SwipeStripe and SilverStripe Payment modules.
 
 SwipeStripe is free to try, but *you MUST purchase a licence before deploying SwipeStripe to a live webserver*.
 
-[Download the SwipeStripe module](http://swipestripe.com/sign-up)  
-[Download the Payment module](http://swipestripe.com/assets/Uploads/Downloads/silverstripe-payment.zip)
+[Download the SwipeStripe module](https://github.com/frankmullenger/silverstripe-swipestripe)  
+[Download the Payment module](https://github.com/silverstripe-labs/silverstripe-payment/tree/1.0)
 
 Once you have downloaded the modules, unzip them and call the folders "swipestripe" and "payment" respectively.
 
@@ -26,14 +85,14 @@ e.g:
 If you installed SilverStripe at: http://swipestripe-test.local  
 To run a build on this domain visit: http://swipestripe-test.local/dev/build?flush=1
 
-### Set base currency
+#### Set base currency
 After installing SwipeStripe it is a good idea to set a base currency - before you add products or process any orders.
 
 Go to the Shop section and click on the "Settings" tab.  
 Find the box for "Base Currency" and click "Edit base currency".  
 Set the base currency, a [3 letter currency code](http://en.wikipedia.org/wiki/ISO_4217#Active_codes) and the symbol you want to use when displaying this currency.  
 
-## Install Cheque Payment Module
+### Install Cheque Payment Module
 In order to process test orders you will need to install a method of payment, the easiest payment method to start with (and for testing) is Cheque payment. 
 
 In future you will likely install another payment method such as PaymentExpress, Paystation or PayPal to process credit card payments.
@@ -42,7 +101,7 @@ In future you will likely install another payment method such as PaymentExpress,
 
 Rename the folder "payment-cheque", drop it into the root folder of your SilverStripe install and run a build on your site again.
 
-### Configure Cheque Payment
+#### Configure Cheque Payment
 After installing the cheque payment module you will need to enable it. In SilverStripe 3 configuration is achieved via YAML files. 
 
 Create the file:  
