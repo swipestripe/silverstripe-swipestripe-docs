@@ -1,0 +1,26 @@
+{
+	"name": "swipestripe/swipestripe-docs",
+	"description": "SwipeStripe documentations",
+	"homepage": "http://swipestripe.com",
+	"license": "BSD-3-Clause",
+	"type": "silverstripe-module",
+	"keywords": ["silverstripe", "ecommerce", "e-commerce", "shop", "swipestripe", "swipe stripe", "documentation"],
+	"authors": [
+		{
+			"name": "Frank Mullenger",
+			"email": "frankmullenger@gmail.com"
+		}
+	],
+	"require":
+	{
+		"silverstripe/framework": "~3.1",
+		"silverstripe/docsviewer": "dev-master"
+	},
+	"support": 
+	{
+		"email": "info@swipestripe.com",
+		"irc": "irc://irc.freenode.org/silverstripe",
+		"forum": "http://www.silverstripe.org/e-commerce-modules/",
+		"issues": "https://github.com/frankmullenger/silverstripe-swipestripe-category/issues"
+	}
+}
