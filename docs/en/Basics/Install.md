@@ -27,7 +27,6 @@ Update mysite/_config/config.yml by adding:
 	PaymentGateway:
 	  environment:
 	    'dev'
-
 	PaymentProcessor:
 	  supported_methods:
 	    dev:
