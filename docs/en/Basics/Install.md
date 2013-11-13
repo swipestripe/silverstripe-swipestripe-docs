@@ -19,7 +19,7 @@ composer require frankmullenger/payment-cheque:dev-master
 
 Update mysite/_config/config.yml by adding:
 
-```yaml
+:::yaml
 	---
 	Name: payment
 	After: 'framework/*','cms/*'
@@ -34,7 +34,6 @@ Update mysite/_config/config.yml by adding:
 	      - 'Cheque'
 	    live:
 	      - 'Cheque'
-```
 
 ```
 php framework/cli-script.php dev/build flush=1
