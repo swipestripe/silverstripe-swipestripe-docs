@@ -4,15 +4,15 @@
 
 ### Install SilverStripe and SwipeStripe
 
+:::bash
 	composer create-project --no-dev silverstripe/installer ./some-directory 3.1.0
 	composer require swipestripe/swipestripe:2.1.*@dev
 	php framework/cli-script.php dev/build flush=1
 
 ### Install payment module
 
-```
-composer require frankmullenger/payment-cheque:dev-master
-```
+:::bash
+	composer require frankmullenger/payment-cheque:dev-master
 
 #### Configure payment module
 
@@ -33,9 +33,8 @@ Update mysite/_config/config.yml by adding:
 	    live:
 	      - 'Cheque'
 
-```
-php framework/cli-script.php dev/build flush=1
-```
+:::bash
+	php framework/cli-script.php dev/build flush=1
 
 ### Set base currency
 After installing SwipeStripe it is a good idea to set a base currency - before you add products or process any orders.
@@ -46,14 +45,13 @@ Set the base currency, a [3 letter currency code](http://en.wikipedia.org/wiki/I
 
 ### Install other SwipeStripe modules
 
-```
-composer require swipestripe/swipestripe-addresses:2.1.*@dev
-composer require swipestripe/swipestripe-category:2.1.*@dev
-composer require swipestripe/swipestripe-flatfeeshipping:2.1.*@dev
-composer require swipestripe/swipestripe-flatfeetax:2.1.*@dev
-composer require swipestripe/swipestripe-currency:2.1.*@dev
-composer require swipestripe/swipestripe-docs:2.1.*@dev
-```
+:::bash
+	composer require swipestripe/swipestripe-addresses:2.1.*@dev
+	composer require swipestripe/swipestripe-category:2.1.*@dev
+	composer require swipestripe/swipestripe-flatfeeshipping:2.1.*@dev
+	composer require swipestripe/swipestripe-flatfeetax:2.1.*@dev
+	composer require swipestripe/swipestripe-currency:2.1.*@dev
+	composer require swipestripe/swipestripe-docs:2.1.*@dev
 
 [List of SwipeStripe modules here](http://addons.silverstripe.org/add-ons/swipestripe)
 
