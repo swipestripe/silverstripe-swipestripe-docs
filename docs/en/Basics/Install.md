@@ -4,11 +4,10 @@
 
 ### Install SilverStripe and SwipeStripe
 
-```
-composer create-project --no-dev silverstripe/installer ./some-directory 3.1.0
-composer require swipestripe/swipestripe:2.1.*@dev
-php framework/cli-script.php dev/build flush=1
-```
+	composer create-project --no-dev silverstripe/installer ./some-directory 3.1.0
+	composer require swipestripe/swipestripe:2.1.*@dev
+	php framework/cli-script.php dev/build flush=1
+
 ### Install payment module
 
 ```
