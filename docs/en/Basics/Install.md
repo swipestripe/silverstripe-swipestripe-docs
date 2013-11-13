@@ -20,20 +20,20 @@ composer require frankmullenger/payment-cheque:dev-master
 Update mysite/_config/config.yml by adding:
 
 ```yaml
----
-Name: payment
-After: 'framework/*','cms/*'
----
-PaymentGateway:
-  environment:
-    'dev'
+	---
+	Name: payment
+	After: 'framework/*','cms/*'
+	---
+	PaymentGateway:
+	  environment:
+	    'dev'
 
-PaymentProcessor:
-  supported_methods:
-    dev:
-      - 'Cheque'
-    live:
-      - 'Cheque'
+	PaymentProcessor:
+	  supported_methods:
+	    dev:
+	      - 'Cheque'
+	    live:
+	      - 'Cheque'
 ```
 
 ```
