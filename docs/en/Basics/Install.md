@@ -4,14 +4,14 @@
 
 ### Install SilverStripe and SwipeStripe
 
-:::bash
+:::
 	composer create-project --no-dev silverstripe/installer ./some-directory 3.1.0
 	composer require swipestripe/swipestripe:2.1.*@dev
 	php framework/cli-script.php dev/build flush=1
 
 ### Install payment module
 
-:::bash
+:::
 	composer require frankmullenger/payment-cheque:dev-master
 
 #### Configure payment module
@@ -33,7 +33,7 @@ Update mysite/_config/config.yml by adding:
 	    live:
 	      - 'Cheque'
 
-:::bash
+:::
 	php framework/cli-script.php dev/build flush=1
 
 ### Set base currency
@@ -45,7 +45,7 @@ Set the base currency, a [3 letter currency code](http://en.wikipedia.org/wiki/I
 
 ### Install other SwipeStripe modules
 
-:::bash
+:::
 	composer require swipestripe/swipestripe-addresses:2.1.*@dev
 	composer require swipestripe/swipestripe-category:2.1.*@dev
 	composer require swipestripe/swipestripe-flatfeeshipping:2.1.*@dev
